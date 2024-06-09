@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
-                    echo "Clone code from branch ${env.BRANCH_NAME}"
+                    echo "Clone code from branch ${env.BRANCH_NAME} "
                     git branch: env.BRANCH_NAME, url: 'https://github.com/Vinh1507/vdt-web'
                 }
                 script {
