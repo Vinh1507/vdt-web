@@ -13,15 +13,15 @@ spec:
         app: {{ include "mynodeapp.name" . }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          ports:
-            - containerPort: 80
-          volumeMounts:
-          - name: nginx-config-volume
-            mountPath: /etc/nginx/nginx.conf
-            subPath: nginx.conf
-        volumes:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+          - containerPort: 80
+        volumeMounts:
         - name: nginx-config-volume
-          configMap:
-            name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config-volume
+        configMap:
+          name: nginx-config
