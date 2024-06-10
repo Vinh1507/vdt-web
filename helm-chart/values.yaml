@@ -44,6 +44,7 @@ service:
   port: 80
   targetPort: 80
   nodePort: 30001
+  portName: vdt-web-port
 
 ingress:
   enabled: false
